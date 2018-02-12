@@ -8,3 +8,5 @@ This repository contains a simple example of such an implementation. It uses a s
 This is the basic flow this sample achieves.
 
 ![Bot search results conversation](https://github.com/martinkearn/Bot-Search-Select-Result-Sample/raw/master/SearchResultFlow.JPG)
+
+The sample is a simple Bot Application created from the [BotBuilder template](https://docs.microsoft.com/en-us/bot-framework/dotnet/bot-builder-dotnet-quickstart). The interesting bits start at [RootDialog.cs](https://github.com/martinkearn/Bot-Search-Select-Result-Sample/raw/master/CSharp/SearchSelectResultBot/Dialogs/RootDialog.cs).
