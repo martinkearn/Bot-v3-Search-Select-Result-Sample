@@ -24,25 +24,15 @@ namespace SearchSelectResultBot.Dialogs
         {
             var message = await argument;
             var searchTerm = message.Text;
-
-            await context.PostAsync($"You searched for {searchTerm}");
-
-            context.Done("");
+            await context.Forward(new SearchResultsDialog(searchTerm), this.ResumeAfterSearchResultsDialog, message, CancellationToken.None);
         }
 
-        //public async Task AfterResetAsync(IDialogContext context, IAwaitable<bool> argument)
-        //{
-        //    var confirm = await argument;
-        //    if (confirm)
-        //    {
-        //        this.count = 1;
-        //        await context.PostAsync("Reset count.");
-        //    }
-        //    else
-        //    {
-        //        await context.PostAsync("Did not reset count.");
-        //    }
-        //    context.Wait(MessageReceivedAsync);
-        //}
+        private async Task ResumeAfterSearchResultsDialog(IDialogContext context, IAwaitable<object> result)
+        {
+            var message = await result as IMessageActivity;
+            var chosenResult = message.Text;
+            await context.PostAsync($"You chose {chosenResult}");
+            context.Done("");
+        }
     }
 }
