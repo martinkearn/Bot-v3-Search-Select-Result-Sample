@@ -12,8 +12,6 @@ namespace SearchSelectResultBot.Dialogs
     [Serializable]
     public class SearchQueryDialog : IDialog<object>
     {
-        protected int count = 1;
-
         public async Task StartAsync(IDialogContext context)
         {
             //Prompt the user to enter a search term and handle the response in MessageReceivedAsync
